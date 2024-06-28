@@ -472,8 +472,8 @@ def classify_dispersion(x, y, time, threshold, window_len, return_discrete=False
 
     def _disp(win_x, win_y):
         """Calculate the dispersion of a window."""
-        delta_x = np.max(win_x) - np.min(win_x)
-        delta_y =np.max(win_y) - np.min(win_y)
+        delta_x = median_abs_deviation(win_x, axis=0, center=<function median>, scale=1.0, nan_policy='propagate')
+        delta_y = median_abs_deviation(win_y, axis=0, center=<function median>, scale=1.0, nan_policy='propagate')
         return delta_x + delta_y
     
     # process time argument
